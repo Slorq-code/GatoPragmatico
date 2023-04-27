@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 List<Cat> catFromJson(String str) =>
@@ -22,7 +21,7 @@ class Cat {
     required this.grooming,
     required this.healthIssues,
     required this.intelligence,
-    required this.image,
+    required this.referenceImageId,
   });
 
   Weight weight;
@@ -38,7 +37,7 @@ class Cat {
   int grooming;
   int healthIssues;
   int intelligence;
-  Images? image;
+  String? referenceImageId;
 
   factory Cat.fromJson(Map<String, dynamic> json) => Cat(
         weight: Weight.fromJson(json["weight"]),
@@ -54,7 +53,7 @@ class Cat {
         grooming: json["grooming"],
         healthIssues: json["health_issues"],
         intelligence: json["intelligence"],
-        image: json["image"] == null ? null : Images.fromJson(json["image"]),
+        referenceImageId: json["reference_image_id"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -71,37 +70,7 @@ class Cat {
         "grooming": grooming,
         "health_issues": healthIssues,
         "intelligence": intelligence,
-        // ignore: prefer_null_aware_operators
-        "image": image == null ? null : image?.toJson(),
-      };
-}
-
-class Images {
-  Images({
-    required this.id,
-    required this.width,
-    required this.height,
-    required this.url,
-    Images? image,
-  });
-
-  String? id;
-  int? width;
-  int? height;
-  String? url;
-
-  factory Images.fromJson(Map<String, dynamic> json) => Images(
-        id: json["id"],
-        width: json["width"],
-        height: json["height"],
-        url: json["url"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "width": width,
-        "height": height,
-        "url": url,
+        "reference_image_id": referenceImageId,
       };
 }
 

@@ -16,18 +16,18 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         // ignore: unnecessary_new
-        ChangeNotifierProvider(create: (_)=> CatsService(), lazy: false),
+        ChangeNotifierProvider(create: (_) => CatsService(), lazy: false),
       ],
       child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Cat App',
-          initialRoute: 'splash',
-          routes: {
-            'splash':    ( _ ) => const SplashScreen(),
-            'home':    ( _ ) => const HomeScreen(),
-          },
-          theme: miTema,
-          ),
+        debugShowCheckedModeBanner: false,
+        title: 'Cat App',
+        initialRoute: 'splash',
+        routes: {
+          'splash': (_) => const SplashScreen(),
+          'home': (_) => const HomeScreen(),
+        },
+        theme: miTema,
+      ),
     );
   }
 }

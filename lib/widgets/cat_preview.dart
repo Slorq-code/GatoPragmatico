@@ -62,16 +62,27 @@ class _TarjetaImagen extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(50), bottomRight: Radius.circular(50)),
-        child: Container(
-            child: (minino.image != null)
-                ? FadeInImage(
-                    placeholder: const AssetImage('assets/img/giphy.gif'),
-                    image: NetworkImage("${minino.image?.url}"))
-                : const Image(
-                    image: AssetImage('assets/img/no-image.png'),
-                  )),
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(50), bottomRight: Radius.circular(50)),
+          child: Container(
+              child: (() {
+                if (minino.referenceImageId != null) {
+                  try {
+                    return FadeInImage(
+                      placeholder: const AssetImage('assets/img/giphy.gif'),
+                      image: NetworkImage(
+                          "https://cdn2.thecatapi.com/images/${minino.referenceImageId}.jpg"),
+                    );
+                  } catch (e) {
+                    const Image(image: AssetImage('assets/img/no-image.png'),);
+                  }
+                }
+
+                return const Image(
+                  image: AssetImage('assets/img/no-image.png'),
+                );
+              }()),
+          ),
       ),
     );
   }

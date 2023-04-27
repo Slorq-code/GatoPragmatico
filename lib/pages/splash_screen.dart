@@ -29,12 +29,12 @@ class _GatitoCard extends StatelessWidget {
       width: 450,
       child: Column(
         children: <Widget>[
-        // const Divider(height: 5),
+          // const Divider(height: 5),
           _TarjetaTitulo(),
           _SubTarjetaTitulo(),
           _TarjetaImagen(),
           const SizedBox(height: 10),
-         // const Divider(height: 5),
+          // const Divider(height: 5),
         ],
       ),
     );
@@ -53,13 +53,16 @@ class _TarjetaImagen extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: const ClipRRect(
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(120),
-          bottomRight: Radius.circular(120),
-          bottomLeft: Radius.circular(120),
-          topRight: Radius.circular(120),
+          topLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
         ),
-        child: Image(
-          image: AssetImage('assets/img/splash2.gif'),
+        child: Padding(
+          padding: EdgeInsets.only(left: 20, right: 20),
+          child: Image(
+            image: AssetImage('assets/img/splash2.gif'),
+          ),
         ),
       ),
     );
@@ -72,7 +75,7 @@ class _TarjetaTitulo extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: const Text(
-        "Welcome to minino app",
+        "Welcome to minino App",
         style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
       ),
     );
