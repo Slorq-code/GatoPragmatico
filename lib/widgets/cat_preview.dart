@@ -77,7 +77,6 @@ class _TarjetaImagen extends StatelessWidget {
                     const Image(image: AssetImage('assets/img/no-image.png'),);
                   }
                 }
-
                 return const Image(
                   image: AssetImage('assets/img/no-image.png'),
                 );

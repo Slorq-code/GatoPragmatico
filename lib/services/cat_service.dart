@@ -9,8 +9,7 @@ const _APIKEY = "bda53789-d59e-46cd-9bc4-2936630fde39";
 // ignore: constant_identifier_names
 
 class CatsService with ChangeNotifier {
- 
- 
+
   List<Cat> cats = [];
   CatsService() {
     getCats();
