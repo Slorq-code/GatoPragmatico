@@ -6,9 +6,7 @@ const String _baseUrl = 'https://api.thecatapi.com/v1/breeds';
 
 class BreedsService {
   final _dio = Dio();
-
   // BreedsService(String query);
-
   Future getBreedsByName(String name) async {
     
     final specific = name;
