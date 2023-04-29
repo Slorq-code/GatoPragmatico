@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:cat_aplication/pages/home_screen.dart';
@@ -41,14 +43,31 @@ class _GatitoCard extends StatelessWidget {
   }
 }
 
-class _TarjetaImagen extends StatelessWidget {
+class _TarjetaImagen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 10000), () {
+  _TarjetaImagenState createState() => _TarjetaImagenState();
+}
+
+class _TarjetaImagenState extends State<_TarjetaImagen> {
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer(const Duration(milliseconds: 10000), () {
       Navigator.push(
           context, MaterialPageRoute(builder: (contet) => const HomeScreen()));
     });
+  }
 
+  @override
+  void dispose() {
+    _timer.cancel(); // Aquí se cancela el temporizador
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: const ClipRRect(
@@ -68,6 +87,9 @@ class _TarjetaImagen extends StatelessWidget {
     );
   }
 }
+
+
+
 
 class _TarjetaTitulo extends StatelessWidget {
   @override
